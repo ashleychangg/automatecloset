@@ -12,7 +12,7 @@ WINDOW_HEIGHT = 500
 IMG_HEIGHT = 200
 IMG_WIDTH = 200
 BEIGE_COLOR_HEX = '#E3C396'
-SOUND_EFFECT_FILE_PATH = 'assets/yes-2.wav'
+SOUND_EFFECT_FILE_PATH = 'sound/ding.mp3'
 
 # dynamically open folders and make a list, while ignoring any hidden files that start with "."
 # just add any image file into these folders and they will magically appear in your wardrobe!
@@ -61,11 +61,11 @@ class WardrobeApp:
         self.bottoms_frame.pack(fill=tk.BOTH, expand=tk.YES)
 
     def create_buttons(self):
+        create_outfit_button = tk.Button(self.tops_frame, text="Create Outfit", command=self.create_outfit)
+        create_outfit_button.pack(side=tk.TOP)
+
         top_prev_button = tk.Button(self.tops_frame, text="Prev", command=self.get_prev_top)
         top_prev_button.pack(side=tk.LEFT)
-
-        create_outfit_button = tk.Button(self.tops_frame, text="Create Outfit", command=self.create_outfit)
-        create_outfit_button.pack(side=tk.LEFT)
 
         top_next_button = tk.Button(self.tops_frame, text="Next", command=self.get_next_top)
         top_next_button.pack(side=tk.RIGHT)
@@ -146,7 +146,7 @@ class WardrobeApp:
         self.update_photo(self.bottom_images[new_bottom_index], self.bottom_image_label)
 
         # spicy noise
-        playsound(SOUND_EFFECT_FILE_PATH)
+        #playsound(SOUND_EFFECT_FILE_PATH)
 
 
 if __name__ == '__main__':
